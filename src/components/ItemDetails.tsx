@@ -17,21 +17,21 @@ const ItemDetails = () => {
   const [data, setData] = useState<ItemType>();
   const [event, setEvent] = useState<EventDataType[]>();
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/supply/${id}`).then((res) => {
+    axios.get(`http://164.92.234.49/api/supply/${id}`).then((res) => {
       console.log(res);
 
       setData(res.data.data.item);
     });
   }, [id]);
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/item/${id}/event`).then((res) => {
+    axios.get(`http://164.92.234.49/api/item/${id}/event`).then((res) => {
       console.log(res);
 
       setEvent(res.data.data.item);
     });
   }, [id]);
   return (
-    <div className='flex  flex-col  p-6 sm:text-xl'>
+    <div className='flex  flex-col  pt-6 pb-6 pl-12 pr-12 sm:pl-24 sm:pr-24 sm:text-xl'>
       <p className='font-bold text-xl mb-4'>Item</p>
       <div>
         {data !== undefined && <Item displayButton={false} item={data} />}
